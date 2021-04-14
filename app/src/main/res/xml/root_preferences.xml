@@ -1,0 +1,23 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="Developer">
+
+        <Preference
+            app:title="Twitter"
+            app:summary="\@pishitaro_"
+            >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://twitter.com/pishitaro_" />
+        </Preference>
+        <Preference
+            app:title="Mail"
+            app:summary="email@email.com"
+            >
+
+        </Preference>
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

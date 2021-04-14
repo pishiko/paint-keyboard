@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- default -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- pallet -->
+    <color name="p_turquoise">#ff1abc9c</color>
+    <color name="p_emerald">#ff2ecc71</color>
+    <color name="p_peter_river">#ff3498db</color>
+    <color name="p_amethyst">#ff9b59b6</color>
+    <color name="p_wet_asphalt">#ff34495e</color>
+    <color name="p_sun_flower">#fff1c40f</color>
+    <color name="p_carrot">#ffe67e22</color>
+    <color name="p_alizarin">#ffe74c3c</color>
+    <color name="p_clouds">#ffecf0f1</color>
+    <color name="p_concrete">#ff95a5a6</color>
+    <!-- pallet-light -->
+    <color name="p_light">#ff404040</color>
+    <!-- ui -->
+    <color name="ui_bg">#BF000000</color>
+</resources>
