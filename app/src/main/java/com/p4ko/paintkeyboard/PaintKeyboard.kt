@@ -101,7 +101,7 @@ class PaintKeyboard : InputMethodService(),View.OnClickListener,View.OnTouchList
                     null
             )
             return true
-        //Share APIで画像を挿入
+        //ShareAPIで画像を挿入
         }else{
             val imageIntent = Intent(Intent.ACTION_SEND).apply{
                 setDataAndType(uri,IMAGE_FORMAT)
