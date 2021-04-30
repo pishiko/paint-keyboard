@@ -1,11 +1,21 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory app:title="@string/setting">
+    <Preference
+        app:title="@string/jump_to_setting"
+        app:summary="@string/jump_to_setting_summary"
+        app:icon="@drawable/ic_baseline_app_settings_alt_24"
+        app:key="gotoIMESettings"
+        >
+    </Preference>
+    </PreferenceCategory>
 
-    <PreferenceCategory app:title="Developer">
+    <PreferenceCategory app:title="@string/developer">
 
         <Preference
             app:title="Twitter"
-            app:summary="\@pishitaro_"
+            app:summary="@string/twitter"
+            app:icon="@drawable/ic_baseline_alternate_email_24"
             >
             <intent
                 android:action="android.intent.action.VIEW"
@@ -13,9 +23,10 @@
         </Preference>
         <Preference
             app:title="Mail"
-            app:summary="email@email.com"
+            app:summary="@string/email"
+            app:icon="@drawable/ic_baseline_email_24"
+            app:key="sendEmail"
             >
-
         </Preference>
 
     </PreferenceCategory>

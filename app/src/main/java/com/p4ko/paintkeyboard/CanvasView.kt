@@ -117,13 +117,16 @@ class CanvasView:View{
     fun GetImageUri():Uri{
         val fileName = "paint%d.png".format(System.currentTimeMillis())
         try {
-            val fileOutputStream:FileOutputStream = context.openFileOutput(fileName,Context.MODE_PRIVATE)
+            //val fileOutputStream:FileOutputStream = context.openFileOutput(fileName,Context.MODE_PRIVATE)
+            val cachePath = File(context.cacheDir,"images")
+            cachePath.mkdirs()
+            val filePath = File(cachePath,fileName)
+            val fileOutputStream = FileOutputStream(filePath.absolutePath)
 
             //saveGif(fileOutputStream)
             savePng(fileOutputStream)
 
-            val file = context.getFileStreamPath(fileName)
-            return FileProvider.getUriForFile(context,"com.p4ko.paintkeyboard.content",file)
+            return FileProvider.getUriForFile(context,"com.p4ko.paintkeyboard.content",filePath)
         }
         catch(e:Exception){
             e.printStackTrace()
