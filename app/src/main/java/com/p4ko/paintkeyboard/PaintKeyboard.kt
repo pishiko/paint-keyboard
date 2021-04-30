@@ -8,8 +8,7 @@ import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.inputmethodservice.InputMethodService
 import android.net.Uri
-import android.os.Build
-import android.os.Environment
+import android.os.*
 import android.provider.MediaStore
 import android.util.Log
 import android.view.MotionEvent
@@ -26,15 +25,17 @@ import androidx.core.view.inputmethod.InputContentInfoCompat
 import androidx.core.view.isVisible
 import java.io.BufferedInputStream
 import java.io.FileOutputStream
+import java.lang.ref.WeakReference
 import java.util.jar.Manifest
 
+const val MSG_ACTIVITY_TO_SERVICE = 1
+const val IMAGE_FORMAT = "image/png"
 
 class PaintKeyboard : InputMethodService(),View.OnClickListener,View.OnTouchListener {
 
-    val IMAGE_FORMAT = "image/png"
-
     private lateinit var canvasView:CanvasView
     private lateinit var palletMenu:ConstraintLayout
+    private lateinit var topOverlay:ConstraintLayout
     private var isPNGSupported = false
     private val buttonColorMap:Map<Int, Int> = mapOf(
             R.id.pallet_button1 to R.color.p_turquoise,
@@ -59,6 +60,7 @@ class PaintKeyboard : InputMethodService(),View.OnClickListener,View.OnTouchList
             view.findViewById<ImageButton>(R.id.key_image).also { it.setOnClickListener(this) }
 
             palletMenu = view.findViewById<ConstraintLayout>(R.id.pallet_menu).also{it.setOnTouchListener(this)}
+            topOverlay = view.findViewById<ConstraintLayout>(R.id.top_overlay).also{it.setOnTouchListener(this)}
             for((button, color) in buttonColorMap){
                 view.findViewById<ImageButton>(button).also {
                     it.background.mutate().setTint(getColor(color))
@@ -78,6 +80,7 @@ class PaintKeyboard : InputMethodService(),View.OnClickListener,View.OnTouchList
             ClipDescription.compareMimeTypes(it, IMAGE_FORMAT) || ClipDescription.compareMimeTypes(it, "image/*")
         }
         inputPackageName = info.packageName
+        topOverlay.isVisible = !isPostable()
     }
 
      private fun sendImage(uri: Uri):Boolean{
@@ -105,6 +108,8 @@ class PaintKeyboard : InputMethodService(),View.OnClickListener,View.OnTouchList
         }else{
             val imageIntent = Intent(Intent.ACTION_SEND).apply{
                 setDataAndType(uri,IMAGE_FORMAT)
+                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                putExtra(Intent.EXTRA_STREAM,uri)
             }
             val shareIntent = Intent.createChooser(
                     imageIntent,
@@ -121,8 +126,7 @@ class PaintKeyboard : InputMethodService(),View.OnClickListener,View.OnTouchList
             }.toTypedArray()
 
             if(resolvedActivityList.size != ngComponentList.size){
-                //this.grantUriPermission(inputPackageName,uri,Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+                shareIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 shareIntent.putExtra(Intent.EXTRA_EXCLUDE_COMPONENTS, ngComponentList)
                 startActivity(shareIntent)
                 return true
@@ -159,7 +163,7 @@ class PaintKeyboard : InputMethodService(),View.OnClickListener,View.OnTouchList
                 R.id.key_image -> {
                     val intent = Intent(this, ImagePickActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    startActivity(intent)
+                    val a = startActivity(intent)
                 }
             }
         }
@@ -168,4 +172,19 @@ class PaintKeyboard : InputMethodService(),View.OnClickListener,View.OnTouchList
     override fun onTouch(p0: View?, p1: MotionEvent?): Boolean {
         return true
     }
+
+    private fun isPostable():Boolean{
+        if(isPNGSupported){
+            return true
+        }
+        val resolvedActivityList = packageManager.queryIntentActivities(
+                Intent(Intent.ACTION_SEND).apply {
+                    setType(IMAGE_FORMAT)
+                }
+                ,PackageManager.MATCH_ALL).filter {
+            it.activityInfo.packageName == inputPackageName
+        }
+        return resolvedActivityList.size > 0
+    }
+
 }

@@ -21,4 +21,5 @@
     <string name="cant_send">ここでは絵を送れません</string>
     <string name="select_share">投稿先の選択</string>
     <string name="permission_write">権限を設定してください</string>
+    <string name="cant_draw">ここでは描けません</string>
 </resources>
