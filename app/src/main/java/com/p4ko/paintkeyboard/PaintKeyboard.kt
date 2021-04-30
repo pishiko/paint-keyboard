@@ -1,9 +1,7 @@
 package com.p4ko.paintkeyboard
 
 import android.app.PendingIntent
-import android.content.ClipDescription
-import android.content.ComponentName
-import android.content.Intent
+import android.content.*
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.inputmethodservice.InputMethodService
@@ -23,6 +21,7 @@ import androidx.core.view.inputmethod.EditorInfoCompat
 import androidx.core.view.inputmethod.InputConnectionCompat
 import androidx.core.view.inputmethod.InputContentInfoCompat
 import androidx.core.view.isVisible
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import java.io.BufferedInputStream
 import java.io.FileOutputStream
 import java.lang.ref.WeakReference

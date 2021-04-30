@@ -1,16 +1,14 @@
 package com.p4ko.paintkeyboard
 
 import android.app.Activity
-import android.content.ComponentName
-import android.content.Context
-import android.content.Intent
-import android.content.ServiceConnection
+import android.content.*
 import android.net.Uri
 import android.os.Bundle
 import android.os.IBinder
 import android.os.Message
 import android.os.Messenger
 import android.util.Log
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 
 class ImagePickActivity:Activity() {
 
@@ -25,16 +23,16 @@ class ImagePickActivity:Activity() {
         startActivityForResult(intent,REQUEST_PICK_MEDIA)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == REQUEST_PICK_MEDIA) {
-            data?.data?.let { sendPickImageURI(it) }
+            data.data?.let { sendPickImageURI(it) }
         }
         finish()
     }
 
     private fun sendPickImageURI(uri:Uri){
-        Log.d("d",uri.toString())
+        //Log.d("d",uri.toString())
     }
 }
