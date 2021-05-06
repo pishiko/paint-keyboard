@@ -1,15 +1,15 @@
 <resources>
-    <string name="app_name">おえかきーボード</string>
-    <string name="title_activity_paint_keyboad_settings">おえかキーボード設定</string>
-    <string name="keyboard_detail">おえかき</string>
-    <string name="setting">設定</string>
-    <string name="cant_send">ここでは絵を送れません</string>
-    <string name="select_share">投稿先の選択</string>
-    <string name="permission_write">権限を設定してください</string>
-    <string name="cant_draw">ここでは描けません</string>
+    <string name="app_name">Scribble Keyboard</string>
+    <string name="title_activity_paint_keyboad_settings">Scribble Keyboard Settings</string>
+    <string name="keyboard_detail">Scribble</string>
+    <string name="setting">Settings</string>
+    <string name="cant_send">You can\'t send pictures here</string>
+    <string name="select_share">Select where to post</string>
+    <string name="permission_write">Set permissions</string>
+    <string name="cant_draw">You can\'t send pictures here</string>
     <string name="email">devpishiko@gmail.com</string>
     <string name="twitter">\@pishitaro_</string>
-    <string name="developer">開発者情報</string>
-    <string name="jump_to_setting">キーボードの有効化</string>
-    <string name="jump_to_setting_summary">設定画面でおえかきーボードにチェックを入れてください(初回必須)</string>
+    <string name="developer">Developer\'s Info</string>
+    <string name="jump_to_setting">Activate the keyboard</string>
+    <string name="jump_to_setting_summary">Check the Scribble Keyboard checkbox in the Settings screen(First Time Must)</string>
 </resources>

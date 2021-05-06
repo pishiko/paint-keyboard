@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">おえかきキーボード</string>
+    <string name="title_activity_paint_keyboad_settings">おえかきキーボード設定</string>
+    <string name="keyboard_detail">おえかき</string>
+    <string name="setting">設定</string>
+    <string name="cant_send">ここでは絵を送れません</string>
+    <string name="select_share">投稿先の選択</string>
+    <string name="permission_write">権限を設定してください</string>
+    <string name="cant_draw">ここでは描けません</string>
+    <string name="email">devpishiko@gmail.com</string>
+    <string name="twitter">\@pishitaro_</string>
+    <string name="developer">開発者情報</string>
+    <string name="jump_to_setting">キーボードの有効化</string>
+    <string name="jump_to_setting_summary">設定画面でおえかきキーボードにチェックを入れてください(初回必須)</string>
+</resources>
