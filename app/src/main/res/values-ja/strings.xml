@@ -12,4 +12,9 @@
     <string name="developer">開発者情報</string>
     <string name="jump_to_setting">キーボードの有効化</string>
     <string name="jump_to_setting_summary">設定画面でおえかきキーボードにチェックを入れてください(初回必須)</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="privacy_policy_summary">プライバシーポリシーを表示する</string>
+    <string name="share">共有</string>
+    <string name="share_summary">このアプリを共有する</string>
+    <string name="share_content">" #おえかきキーボード で描いたよ～！ #ScribbleKeyboard https://play.google.com/store/apps/details?id=com.p4ko.paintkeyboard"</string>
 </resources>

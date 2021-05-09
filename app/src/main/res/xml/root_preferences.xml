@@ -9,6 +9,13 @@
         >
     </Preference>
     </PreferenceCategory>
+    <Preference
+        app:title="@string/share"
+        app:summary="@string/share_summary"
+        app:icon="@drawable/ic_baseline_share_24"
+        app:key="shareIntent"
+        >
+    </Preference>
 
     <PreferenceCategory app:title="@string/developer">
 
@@ -27,6 +34,15 @@
             app:icon="@drawable/ic_baseline_email_24"
             app:key="sendEmail"
             >
+        </Preference>
+        <Preference
+            app:title="@string/privacy_policy"
+            app:summary="@string/privacy_policy_summary"
+            app:icon="@drawable/ic_baseline_policy_24"
+            >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://paintkeyboard.p4ko.com/privacypolicy/" />
         </Preference>
 
     </PreferenceCategory>

@@ -50,6 +50,12 @@ class PaintKeyboardSettings : AppCompatActivity() {
                     putExtra(Intent.EXTRA_TEXT, "")
                 }
             }
+            findPreference<Preference>("shareIntent")?.apply {
+                intent = Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_TEXT,getString(R.string.share_content))
+                }
+            }
         }
 
     }
