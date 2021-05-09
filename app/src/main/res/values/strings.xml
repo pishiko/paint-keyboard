@@ -12,4 +12,9 @@
     <string name="developer">Developer\'s Info</string>
     <string name="jump_to_setting">Activate the keyboard</string>
     <string name="jump_to_setting_summary">Check the Scribble Keyboard checkbox in the Settings screen(First Time Must)</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="privacy_policy_summary">View Privacy Policy</string>
+    <string name="share">Share</string>
+    <string name="share_summary">I hope you\'ll share it with your friends.</string>
+    <string name="share_content">"I drew it! #ScribbleKeyboard #おえかきキーボード https://play.google.com/store/apps/details?id=com.p4ko.paintkeyboard"</string>
 </resources>
